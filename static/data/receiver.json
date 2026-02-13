@@ -1,0 +1,12 @@
+{
+  "refresh": 1000,
+  "history": 1,
+  "lat": 32.810262,
+  "lon": -116.940459,
+  "jaeroTimeout": 33.0,
+  "readsb": true,
+  "binCraft": true,
+  "zstd": true,
+  "outlineJson": true,
+  "version": "3.16.9 wiedehopf git: 5831f91 (committed: Tue Feb 3 19:47:58 2026 0000)"
+}

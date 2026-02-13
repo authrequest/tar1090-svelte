@@ -1,0 +1,33 @@
+{
+  "name": "tar1090-svelte",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.28.1",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@skeletonlabs/skeleton": "^4.12.0",
+    "@skeletonlabs/skeleton-svelte": "^4.12.0",
+    "@sveltejs/adapter-auto": "^4.0.0",
+    "@sveltejs/kit": "^2.50.2",
+    "@sveltejs/vite-plugin-svelte": "^5.1.1",
+    "svelte": "^5.50.2",
+    "svelte-check": "^4.3.6",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.1",
+    "vitest": "^2.1.9"
+  },
+  "dependencies": {
+    "@humanspeak/svelte-virtual-list": "^0.3.10",
+    "@sentry/sveltekit": "^10.38.0",
+    "@tailwindcss/vite": "^4.1.18",
+    "ol": "^10.8.0",
+    "tailwindcss": "^4.1.18"
+  }
+}

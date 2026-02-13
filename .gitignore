@@ -1,0 +1,59 @@
+node_modules/
+
+# SvelteKit / Vite build artifacts
+.svelte-kit/
+build/
+dist/
+.vite/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+!.env.template
+!.env.sample
+.envrc
+.sentryclirc
+
+# Local/editor/system
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.cursor/
+.sisyphus/
+opencode.json
+MIGRATION_STATUS.md
+
+# Test/coverage/cache
+coverage/
+.nyc_output/
+.cache/
+
+# Package/build leftovers
+*.tgz
+*.tsbuildinfo
+
+# Private keys / certs / keystores
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.jks
+*.kdbx
+
+# Deployment/platform local state
+.vercel/
+.netlify/
+
+# Local upstream reference clone
+upstream-tar1090/

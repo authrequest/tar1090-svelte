@@ -1,0 +1,37 @@
+# tar1090-svelte History Daemon Configuration
+# This file is sourced by the systemd service
+
+# Source URL for aircraft.json
+# This should point to your readsb or dump1090-fa instance
+SRC_URL=http://127.0.0.1:8080/data/aircraft.json
+
+# History configuration
+# INTERVAL: How often to fetch aircraft data (in seconds)
+INTERVAL=8
+
+# HISTORY_SIZE: Number of snapshots to keep in recent history
+# This determines how far back the "recent" history goes
+# Default: 450 entries = ~1 hour at 8 second intervals
+HISTORY_SIZE=450
+
+# CHUNK_SIZE: Number of snapshots per compressed chunk
+# Larger chunks = better compression but slower access
+CHUNK_SIZE=60
+
+# PTRACKS: Hours of persistent tracks to keep
+# These are used for the ?pTracks visualization showing coverage
+# Default: 8 hours
+PTRACKS=8
+
+# GZIP_LVL: Compression level (1-9)
+# 1 = fastest, least compression
+# 9 = slowest, best compression
+GZIP_LVL=1
+
+# ENABLE_COMPRESSION: Enable gzip compression of history files
+# yes = compressed (saves disk space)
+# no = uncompressed (faster access)
+ENABLE_COMPRESSION=yes
+
+# Working directories (usually don't need to change)
+RUN_DIR=/var/lib/tar1090-svelte/history

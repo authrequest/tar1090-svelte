@@ -75,7 +75,46 @@ updateTick++; // One reactive notification
 3. **Virtual Lists**: Table view uses virtual scrolling for 1000+ rows
 4. **Object Pooling**: Feature reuse in OpenLayers to minimize GC
 
+## Quick Start (Automated Installation)
+
+The easiest way to install tar1090-svelte on a Raspberry Pi or Linux server:
+
+```bash
+# One-line installation (like upstream tar1090)
+sudo bash -c "$(wget -nv -O - https://github.com/authrequest/tar1090-svelte/raw/master/scripts/install.sh)"
+
+# Or with custom port and install path
+sudo bash install.sh [port] [install_path]
+
+# Example: Install on port 8080
+sudo bash install.sh 8080
+```
+
+This will:
+- Install Node.js and pnpm if missing
+- Clone the repository
+- Install dependencies
+- Download aircraft database
+- Configure environment variables
+- Build the application
+- Create and start a systemd service
+
+### Update
+
+```bash
+# Same command as installation
+sudo bash -c "$(wget -nv -O - https://github.com/authrequest/tar1090-svelte/raw/master/scripts/install.sh)"
+```
+
+### Uninstall
+
+```bash
+sudo bash scripts/uninstall.sh
+```
+
 ## Development
+
+### Manual Setup
 
 ```bash
 # Install dependencies
@@ -89,6 +128,35 @@ pnpm build
 
 # Preview production build
 pnpm preview
+```
+
+### Helper Scripts
+
+The `scripts/` directory contains helpful automation scripts:
+
+| Script | Purpose |
+|--------|---------|
+| `install.sh` | Full system installation with systemd service |
+| `uninstall.sh` | Remove installation completely |
+| `setup.sh` | Development environment setup |
+| `build.sh` | Production build with cache busting |
+| `update-db.sh` | Download/update aircraft database |
+| `deploy.sh` | Deploy to various platforms (static, Docker, Vercel, etc.) |
+
+### Using the Scripts
+
+```bash
+# Development setup
+bash scripts/setup.sh
+
+# Production build with cache busting
+bash scripts/build.sh
+
+# Update aircraft database
+bash scripts/update-db.sh
+
+# Deploy (supports: static, node, docker, vercel, netlify)
+bash scripts/deploy.sh static
 ```
 
 ## Configuration
@@ -126,19 +194,28 @@ Source-map upload for production builds still uses `SENTRY_AUTH_TOKEN` (see `.en
 
 ✅ Completed:
 - Project structure
-- Two-lane architecture
-- OpenLayers integration
-- Filter panel (POC)
-- Info panel
-- Basic map controls
+- Two-lane architecture (Lane A: Hot path, Lane B: UI state)
+- OpenLayers integration with optimized updates
+- Aircraft table with sorting and filtering
+- InfoPanel matching upstream sections (Identity, Spatial, Signal, etc.)
+- Filter panel with advanced filters (callsign, type, altitude, speed)
+- URL parameter parity (orientation, sorting, filters, columns)
+- Custom zstd decoder integration
+- Aircraft database enrichment pipeline
+- Sentry integration (client, server, source maps)
+- Liquid Glass UI theme
+- Ground vehicle detection and filtering
+- Flag SVG rendering
+- Aircraft type display
+- Installation/uninstallation scripts
+- Systemd service setup
 
 🚧 TODO:
-- Aircraft table with virtual list
 - Heatmap visualization
 - History playback
-- Settings panel
-- Mobile responsive design
-- Icon/sprites from original tar1090
+- Settings panel persistence
+- Mobile responsive design refinement
+- PWA support
 
 ## Bundle Size
 
